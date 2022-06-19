@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="container col-md-6 my-5">
+    <h1 style="color:red">USER LOGIN</h1>
+    <div *ngIf="showMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Username & Password both cannot be empty</strong>
+      <button (click)="closeMessage()" type="button" class="btn-close" data-bs-dismiss="alert"
+        aria-label="Close"></button>
+    </div>
+    <div *ngIf="showSuccessMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Login Successful</strong>
+      <button (click)="closeSuccessMessage()" type="button" class="btn-close" data-bs-dismiss="alert"
+        aria-label="Close"></button>
+    </div>
+    <div *ngIf="showWrongMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>Invalid Username or Password</strong>
+      <button (click)="closeWrongMessage()" type="button" class="btn-close" data-bs-dismiss="alert"
+        aria-label="Close"></button>
+    </div>
+    <form (ngSubmit)="userLogin()">
+      <div class="mb-3">
+        <label for="userId" class="form-label">Username</label>
+        <input type="text" [(ngModel)]="user.username" class="form-control" name="username">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" [(ngModel)]="user.password" class="form-control" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="reset" class="btn btn-primary float-end">Reset</button>
+    </form>
+  </div>
+</div>
